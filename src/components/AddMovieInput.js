@@ -29,8 +29,7 @@ import {
 } from '../actions/movieActions';
 import { mergeArrays } from './MainPage';
 import Icons from './DateDisplayIcons';
-// const key = 'AIzaSyD3WkcXiEOOADMgHo6ussO8j_tX50KaJhA';
-const key = 'AIzaSyCzuSdRVtpNzkDqnPd2NuF7x_4ZLR_92pc';
+import {key} from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   margin: {

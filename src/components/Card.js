@@ -30,8 +30,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios, { youtubeAxios } from '../axios';
 import { mergeArrays } from './MainPage';
-
-const key = 'AIzaSyCzuSdRVtpNzkDqnPd2NuF7x_4ZLR_92pc';
+import {key} from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   root: {

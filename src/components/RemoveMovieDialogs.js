@@ -12,8 +12,7 @@ import {
   setCurrentPage,
   removeMovie,
 } from '../actions/movieActions';
-
-const key = 'AIzaSyCzuSdRVtpNzkDqnPd2NuF7x_4ZLR_92pc';
+import {key} from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   content: {

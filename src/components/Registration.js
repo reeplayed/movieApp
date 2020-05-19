@@ -9,7 +9,6 @@ import { Box, CircularProgress } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import GoogleLogin from 'react-google-login';
 
 const emailValidation = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+[^<>()\.,;:\s@\"]{2,})$/;
 
