@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const baseURL = 'http://vectrum.herokuapp.com/'
+export const baseURL = 'https://vectrum.herokuapp.com/'
 
 export default axios.create({
   baseURL
