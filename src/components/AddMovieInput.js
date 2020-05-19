@@ -172,7 +172,9 @@ const AddMovieInput = ({
       .catch(err => {
         setLoading(false);
         setError('Connection error.');
-        alert(err.response);
+        if(err.response.status===403){
+          alert('Query limit exceeded.')
+        }
       });
   };
 
@@ -207,7 +209,9 @@ const AddMovieInput = ({
             .catch(err => {
               setLoading2(false);
               setError('Not found video.');
-              alert(err.response);
+              if(err.response.status===403){
+                alert('Query limit exceeded.')
+              }
             });
         } else {
           setLoading2(false);

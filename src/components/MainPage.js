@@ -113,12 +113,15 @@ const MainPage = ({
               setTotalPage(data.total_page);
               setLoading(false);
             })
-            .catch(({ response }) => {
-              alert(response, 'heee');
+            .catch((err) => {
+              if(err.response.status===403){
+                alert('Query limit exceeded.')
+              }
+              alert(err.response.message);
             });
         })
         .catch(({ response }) => {
-          alert(response, 'fff');
+          alert(response);
           setLoading(false);
         })  
     } 

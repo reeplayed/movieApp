@@ -91,9 +91,11 @@ const VideoRemoveDialog = ({
               setTotalPage(res.data.total_page);
             })
             .catch(err => {
+              if(err.status===403){
+                alert('Query limit exceeded.')
+              }
               setLoading(false);
               setError('Not found video.');
-              console.log(err, 'dsdssd');
             });
         } else {
           setOpen(false);

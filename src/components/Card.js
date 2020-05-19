@@ -166,7 +166,12 @@ const ImgMediaCard = ({
                 }
                 setTotalPage(data.total_page);
               })
-              .catch(err => {});
+              .catch(err => {
+                if(err.response.status===403){
+                  alert('Query limit exceeded.')
+                }
+                alert(err.response.message);
+              });
           } else {
             removeMovie(movie_id);
             setCurrentPage(data.total_page);
