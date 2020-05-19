@@ -150,7 +150,7 @@ class SingIn extends React.Component {
 
         this.props.setUser(data.ownAccessToken, response.accessToken);
       })
-      .catch(err => console.log('ddd'));
+      .catch(err => alert(err));
   };
 
   onChangeHandler = e => this.setState({ [e.target.id]: e.target.value });
@@ -260,7 +260,7 @@ class SingIn extends React.Component {
               OR
             </Typography>
             <GoogleLogin
-              clientId="877070764919-g55aip3odu1ubqi8sde12mjsds05deus.apps.googleusercontent.com" 
+              clientId="877070764919-5arp1brusgtjvbfbahas9s145t3i4i2l.apps.googleusercontent.com" 
               render={renderProps => (
                 <StyledButton clickHandler={renderProps.onClick}>
                   Login with Google
