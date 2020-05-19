@@ -116,11 +116,11 @@ const MainPage = ({
               setLoading(false);
             })
             .catch(({ response }) => {
-              alert(response);
+              alert(response, 'heee');
             });
         })
         .catch(({ response }) => {
-          alert(response);
+          alert(response, 'fff');
           setLoading(false);
         })  
     } 
