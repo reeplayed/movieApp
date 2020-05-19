@@ -1,8 +1,6 @@
 import { ModalContainer, ModalRoute } from 'react-router-modal';
 import { BrowserRouter, Link } from 'react-router-dom';
 
-// assumes webpack loader for css
-// ... or include this css however you do that in your project ...
 import 'react-router-modal/css/react-router-modal.css';
 
 function FooModal() {
