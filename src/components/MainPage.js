@@ -117,11 +117,12 @@ const MainPage = ({
               if(err.response.status===403){
                 alert('Query limit exceeded.')
               }
-              alert(err.response.message);
+              else{
+                alert(err.response.message);
+              }
             });
         })
         .catch(({ response }) => {
-          alert(response);
           setLoading(false);
         })  
     } 

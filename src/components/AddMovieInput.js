@@ -4,11 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
   Button,
-  Box,
-  InputAdornment,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
   CircularProgress,
 } from '@material-ui/core';
 import YouTubeIcon from '@material-ui/icons/YouTube';
@@ -19,8 +14,6 @@ import Dialog from '@material-ui/core/Dialog';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import ViewComfyIcon from '@material-ui/icons/ViewComfy';
-import ViewListIcon from '@material-ui/icons/ViewList';
 import {
   setDisplay,
   setMovies,
@@ -173,7 +166,7 @@ const AddMovieInput = ({
         setLoading(false);
         setError('Connection error.');
         if(err.response.status===403){
-          alert('Query limit exceeded.')
+          alert('Sorry, YouTube api query limit exceeded.')
         }
       });
   };
@@ -210,7 +203,7 @@ const AddMovieInput = ({
               setLoading2(false);
               setError('Not found video.');
               if(err.response.status===403){
-                alert('Query limit exceeded.')
+                alert('Sorry, YouTube api query limit exceeded.')
               }
             });
         } else {
