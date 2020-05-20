@@ -115,7 +115,7 @@ const MainPage = ({
             })
             .catch((err) => {
               if(err.response.status===403){
-                alert('Query limit exceeded.')
+                alert('Sorry, YouTube api query limit exceeded..')
               }
               else{
                 alert(err.response.message);
