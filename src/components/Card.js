@@ -250,7 +250,6 @@ const ImgMediaCard = ({
                   display === 'list'
                     ? 'truncate-long-texts'
                     : display === 'module'
-                    // ? 'truncate-long-texts'
                     ? 'truncate-long-texts'
                     : null
                 }
