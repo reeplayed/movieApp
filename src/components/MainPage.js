@@ -196,26 +196,6 @@ const MainPage = ({
           You must sign in to use the application...
         </Typography>
 
-        <Typography
-          className={classes.margin}
-          align="center"
-          color="secondary"
-          variant="h6"
-          component="h6"
-        >
-          Username: TestUser{testUserId}
-        
-        </Typography>
-        <Typography
-          className={classes.margin}
-          align="center"
-          color="secondary"
-          variant="h6"
-          component="h6"
-        >
-          Password: TestUser{testUserId}
-        
-        </Typography>
     </React.Fragment>
   )
   return (
