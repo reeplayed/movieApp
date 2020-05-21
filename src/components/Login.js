@@ -1,20 +1,13 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Avatar, CircularProgress } from '@material-ui/core';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import { Box, CircularProgress } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import GoogleLogin from 'react-google-login';
 import axios from '../axios';
 import { connect } from 'react-redux';
 import { setUser, setSingInUpView } from '../actions/authActions';
-import { Link } from 'react-router-dom';
+
 import { withStyles } from '@material-ui/styles';
 
 export const useStyles = theme => ({

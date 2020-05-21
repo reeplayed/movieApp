@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import ReactPlayer from 'react-player';
 import axios, { youtubeAxios } from '../axios';
 import VideoModal from './VideoModal';
 
@@ -14,7 +12,6 @@ import { setUser } from '../actions/authActions';
 import { Grid, CircularProgress, Typography } from '@material-ui/core';
 import _ from 'lodash';
 import { makeStyles } from '@material-ui/core/styles';
-import posed, { PoseGroup } from 'react-pose';
 import {
   setDisplay,
   setMovies,
