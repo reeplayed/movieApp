@@ -16,6 +16,7 @@ import Registration from './Registration';
 import { withStyles } from '@material-ui/styles';
 import { setFavourite } from '../actions/movieActions';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import UserInfo from './UserInfo';
 
 const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
