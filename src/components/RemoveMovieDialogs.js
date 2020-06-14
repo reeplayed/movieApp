@@ -12,7 +12,7 @@ import {
   setCurrentPage,
   removeMovie,
 } from '../actions/movieActions';
-import {key} from '../apiKeys';
+import { key } from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   content: {
@@ -91,8 +91,8 @@ const VideoRemoveDialog = ({
               setTotalPage(res.data.total_page);
             })
             .catch(err => {
-              if(err.status===403){
-                alert('Query limit exceeded.')
+              if (err.status === 403) {
+                alert('Query limit exceeded.');
               }
               setLoading(false);
               setError('Not found video.');

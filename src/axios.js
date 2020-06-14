@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const baseURL = 'https://vectrum.herokuapp.com/'
+export const baseURL = 'https://vectrum.herokuapp.com/';
 
 export default axios.create({
-  baseURL
+  baseURL,
 });
 
 export const youtubeAxios = axios.create({
-  baseURL
+  baseURL,
 });

@@ -253,14 +253,14 @@ class SingIn extends React.Component {
               OR
             </Typography>
             <GoogleLogin
-              clientId="877070764919-5arp1brusgtjvbfbahas9s145t3i4i2l.apps.googleusercontent.com" 
+              clientId="877070764919-5arp1brusgtjvbfbahas9s145t3i4i2l.apps.googleusercontent.com"
               render={renderProps => (
                 <StyledButton clickHandler={renderProps.onClick}>
                   Login with Google
                 </StyledButton>
               )}
               onSuccess={this.responseGoogle}
-              onFailure={(err) => console.log(err)}
+              onFailure={err => console.log(err)}
               cookiePolicy={'single_host_origin'}
             />
           </form>

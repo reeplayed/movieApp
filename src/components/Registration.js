@@ -62,8 +62,8 @@ class Registration extends Component {
       .post('api/singup/', { username, password, email })
       .then(() => {
         this.setState({ ...this.state, loading: false });
-        this.props.setSingInUpView('login')
-        alert('You create new account.')
+        this.props.setSingInUpView('login');
+        alert('You create new account.');
       })
       .catch(({ response }) => {
         this.setState({ ...this.state, loading: false });

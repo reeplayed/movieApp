@@ -11,7 +11,7 @@ import {
   REMOVE_FROM_FAVOURITE,
   SET_FAVOURITE,
   CLOSE_VIDEO_MODAL,
-  OPEN_VIDEO_MODAL
+  OPEN_VIDEO_MODAL,
 } from './types';
 
 import store from '../store';
@@ -72,17 +72,17 @@ export const setFavourite = () => {
 };
 
 export const setModalClose = () => {
-  document.body.style.overflow = 'initial'
+  document.body.style.overflow = 'initial';
   return {
     type: CLOSE_VIDEO_MODAL,
   };
 };
 
-export const setModalOpen = (video) => {
-  document.body.style.overflow = 'hidden'
+export const setModalOpen = video => {
+  document.body.style.overflow = 'hidden';
   return {
     type: OPEN_VIDEO_MODAL,
-    payload: video
+    payload: video,
   };
 };
 

@@ -11,7 +11,7 @@ import {
   REMOVE_FROM_FAVOURITE,
   SET_FAVOURITE,
   CLOSE_VIDEO_MODAL,
-  OPEN_VIDEO_MODAL
+  OPEN_VIDEO_MODAL,
 } from '../actions/types';
 
 const initialState = {
@@ -24,7 +24,7 @@ const initialState = {
   favourite: false,
   loading: true,
   modalOpen: false,
-  modalVideo: null
+  modalVideo: null,
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -84,7 +84,7 @@ const movieReducer = (state = initialState, action) => {
       return {
         ...state,
         modalOpen: true,
-        modalVideo: action.payload
+        modalVideo: action.payload,
       };
     }
 

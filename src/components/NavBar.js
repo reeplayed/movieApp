@@ -64,7 +64,7 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
 
 function NavBar({ auth, movie, setFavourite }) {
   const classes = useStyles();
-  
+
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {

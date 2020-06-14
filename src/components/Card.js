@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -16,7 +16,7 @@ import {
   setCurrentPage,
   setTotalPage,
   removeMovie,
-  setModalOpen
+  setModalOpen,
 } from '../actions/movieActions';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -25,7 +25,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import axios, { youtubeAxios } from '../axios';
 import { mergeArrays } from './MainPage';
-import {key} from '../apiKeys';
+import { key } from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -99,10 +99,9 @@ const ImgMediaCard = ({
   removeMovie,
   setTotalPage,
   setCurrentPage,
-  setModalOpen
+  setModalOpen,
 }) => {
   const classes = useStyles();
- 
 
   const [disabled, setDisabled] = useState(false);
 
@@ -162,10 +161,9 @@ const ImgMediaCard = ({
                 setTotalPage(data.total_page);
               })
               .catch(err => {
-                if(err.response.status===403){
-                  alert('Sorry, YouTube api query limit exceeded.')
-                }
-                else{
+                if (err.response.status === 403) {
+                  alert('Sorry, YouTube api query limit exceeded.');
+                } else {
                   alert(err.response.message);
                 }
               });
@@ -181,118 +179,120 @@ const ImgMediaCard = ({
     }
   };
 
-
   return (
-    <div >
-    <Card className={classes.root}>
-      <Grid
-        container
-        className={classes.hoverBackground}
-        alignItems="center"
-        justify="center"
-      >
-
-        <Grid item container xs={12} wrap="nowrap">
-          
-          <YouTubeIcon 
-            color="secondary" 
-            fontSize="large"
-            onClick={()=>setModalOpen(movie_id)}  
-          />
-          
-          {favouriteBool ? (
-            <FavoriteIcon
-              onClick={removeFromFavouriteHandler}
-              className="icon-anime rem"
+    <div>
+      <Card className={classes.root}>
+        <Grid
+          container
+          className={classes.hoverBackground}
+          alignItems="center"
+          justify="center"
+        >
+          <Grid item container xs={12} wrap="nowrap">
+            <YouTubeIcon
               color="secondary"
               fontSize="large"
+              onClick={() => setModalOpen(movie_id)}
             />
-          ) : (
-            <FavoriteBorderIcon
-              onClick={addToFavouriteHandler}
-              className="icon-anime add"
-              color="secondary"
-              fontSize="large"
-            />
-          )}
 
-          <VideoRemoveDialog movie_id={movie_id}>
-            <DeleteIcon color="secondary" fontSize="large" />
-          </VideoRemoveDialog>
-        </Grid>
-      </Grid>
+            {favouriteBool ? (
+              <FavoriteIcon
+                onClick={removeFromFavouriteHandler}
+                className="icon-anime rem"
+                color="secondary"
+                fontSize="large"
+              />
+            ) : (
+              <FavoriteBorderIcon
+                onClick={addToFavouriteHandler}
+                className="icon-anime add"
+                color="secondary"
+                fontSize="large"
+              />
+            )}
 
-      <CardActionArea>
-        <Grid container direction="row" spacing={0}>
-          <Grid
-            item
-            xs={display === 'list' ? 12 : display === 'module' ? 3 : null}
-          >
-            <CardMedia
-              className={classes.image}
-              component="img"
-              alt={title}
-              height="140"
-              image={image}
-              title={title}
-            />
+            <VideoRemoveDialog movie_id={movie_id}>
+              <DeleteIcon color="secondary" fontSize="large" />
+            </VideoRemoveDialog>
           </Grid>
-          <Grid xs={display === 'list' ? 12 : display === 'module' ? 9 : null}>
-            <CardContent className={classes.content}>
-              <Typography
+        </Grid>
+
+        <CardActionArea>
+          <Grid container direction="row" spacing={0}>
+            <Grid
+              item
+              xs={display === 'list' ? 12 : display === 'module' ? 3 : null}
+            >
+              <CardMedia
+                className={classes.image}
+                component="img"
                 alt={title}
-                className={
-                  display === 'list'
-                    ? 'truncate-long-texts'
-                    : display === 'module'
-                    ? 'truncate-long-texts'
-                    : null
-                }
-                gutterBottom
-                variant="subtitle2"
-                component="h5"
-              >
-                {title}
-              </Typography>
+                height="140"
+                image={image}
+                title={title}
+              />
+            </Grid>
+            <Grid
+              xs={display === 'list' ? 12 : display === 'module' ? 9 : null}
+            >
+              <CardContent className={classes.content}>
+                <Typography
+                  alt={title}
+                  className={
+                    display === 'list'
+                      ? 'truncate-long-texts'
+                      : display === 'module'
+                      ? 'truncate-long-texts'
+                      : null
+                  }
+                  gutterBottom
+                  variant="subtitle2"
+                  component="h5"
+                >
+                  {title}
+                </Typography>
 
-              <div className={classes.iconsWrapper}>
-                <div className={classes.iconWrapper}>
-                  <ThumbUpIcon className={classes.icon} color="secondary" />
-                  <Typography
-                    variant="body2"
-                    className={classes.typography}
-                    component="span"
-                  >
-                    {likes}
-                  </Typography>
-                </div>
-                <div className={classes.iconWrapper}>
-                  <VisibilityIcon className={classes.icon} color="secondary" />
+                <div className={classes.iconsWrapper}>
+                  <div className={classes.iconWrapper}>
+                    <ThumbUpIcon className={classes.icon} color="secondary" />
+                    <Typography
+                      variant="body2"
+                      className={classes.typography}
+                      component="span"
+                    >
+                      {likes}
+                    </Typography>
+                  </div>
+                  <div className={classes.iconWrapper}>
+                    <VisibilityIcon
+                      className={classes.icon}
+                      color="secondary"
+                    />
 
-                  <Typography
-                    variant="body2"
-                    className={classes.typography}
-                    component="p"
-                  >
-                    {views}
-                  </Typography>
+                    <Typography
+                      variant="body2"
+                      className={classes.typography}
+                      component="p"
+                    >
+                      {views}
+                    </Typography>
+                  </div>
+                  <div className={classes.iconWrapper}>
+                    <DateRangeIcon className={classes.icon} color="secondary" />
+                    <Typography
+                      variant="body2"
+                      className={classes.typography}
+                      component="p"
+                    >
+                      {date_add}
+                    </Typography>
+                  </div>
                 </div>
-                <div className={classes.iconWrapper}>
-                  <DateRangeIcon className={classes.icon} color="secondary" />
-                  <Typography
-                    variant="body2"
-                    className={classes.typography}
-                    component="p"
-                  >
-                    {date_add}
-                  </Typography>
-                </div>
-              </div>
-            </CardContent>
+              </CardContent>
+            </Grid>
           </Grid>
-        </Grid>
-      </CardActionArea>
-    </Card>
+        </CardActionArea>
+      </Card>
     </div>
   );
 };
@@ -308,5 +308,5 @@ export default connect(mapStateToProps, {
   setTotalPage,
   setCurrentPage,
   removeMovie,
-  setModalOpen
+  setModalOpen,
 })(ImgMediaCard);

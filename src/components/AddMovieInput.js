@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  Grid,
-  Button,
-  CircularProgress,
-} from '@material-ui/core';
+import { Grid, Button, CircularProgress } from '@material-ui/core';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import jwtDecode from 'jwt-decode';
 import axios, { youtubeAxios } from '../axios';
@@ -22,7 +18,7 @@ import {
 } from '../actions/movieActions';
 import { mergeArrays } from './MainPage';
 import Icons from './DateDisplayIcons';
-import {key} from '../apiKeys';
+import { key } from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   margin: {
@@ -165,8 +161,8 @@ const AddMovieInput = ({
       .catch(err => {
         setLoading(false);
         setError('Connection error.');
-        if(err.response.status===403){
-          alert('Sorry, YouTube api query limit exceeded.')
+        if (err.response.status === 403) {
+          alert('Sorry, YouTube api query limit exceeded.');
         }
       });
   };
@@ -202,8 +198,8 @@ const AddMovieInput = ({
             .catch(err => {
               setLoading2(false);
               setError('Not found video.');
-              if(err.response.status===403){
-                alert('Sorry, YouTube api query limit exceeded.')
+              if (err.response.status === 403) {
+                alert('Sorry, YouTube api query limit exceeded.');
               }
             });
         } else {

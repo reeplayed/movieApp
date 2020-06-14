@@ -18,33 +18,33 @@ import {
   setTotalPage,
   setCurrentPage,
 } from '../actions/movieActions';
-import {key} from '../apiKeys';
+import { key } from '../apiKeys';
 
 const useStyles = makeStyles(theme => ({
   container: {
     width: 500,
     display: 'flex',
     flexWrap: 'wrap',
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   item: {
     width: 50,
     height: 50,
     border: '1px solid black',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   shot: {
     width: 50,
     height: 50,
     border: '1px solid black',
-    backgroundColor: 'red'
+    backgroundColor: 'red',
   },
   border: {
     width: 50,
     height: 50,
     border: '1px solid black',
-    backgroundColor: 'grey'
-  }
+    backgroundColor: 'grey',
+  },
 }));
 
 export const mergeArrays = (array1, array2) => {
@@ -63,7 +63,15 @@ export const mergeArrays = (array1, array2) => {
 
 const MainPage = ({
   auth,
-  movie: { movies, order, total_page, current_page, pagination, favourite, modalOpen },
+  movie: {
+    movies,
+    order,
+    total_page,
+    current_page,
+    pagination,
+    favourite,
+    modalOpen,
+  },
   setMovies,
   setTotalPage,
   setCurrentPage,
@@ -72,7 +80,7 @@ const MainPage = ({
 
   const [loading, setLoading] = useState(true);
 
-  const testUserId = Math.floor(Math.random()*10)
+  const testUserId = Math.floor(Math.random() * 10);
 
   const loadingHandler = () => {
     if (auth.isAuthenticated) {
@@ -87,12 +95,12 @@ const MainPage = ({
           },
         })
         .then(({ data }) => {
-          if(!data.movies_id.length){
+          if (!data.movies_id.length) {
             setLoading(false);
             setMovies([]);
-            return 
+            return;
           }
-          
+
           youtubeAxios
             .get(
               'https://www.googleapis.com/youtube/v3/videos?id=' +
@@ -110,19 +118,18 @@ const MainPage = ({
               setTotalPage(data.total_page);
               setLoading(false);
             })
-            .catch((err) => {
-              if(err.response.status===403){
-                alert('Sorry, YouTube api query limit exceeded..')
-              }
-              else{
+            .catch(err => {
+              if (err.response.status === 403) {
+                alert('Sorry, YouTube api query limit exceeded..');
+              } else {
                 alert(err.response.message);
               }
             });
         })
         .catch(({ response }) => {
           setLoading(false);
-        })  
-    } 
+        });
+    }
   };
 
   useEffect(() => {
@@ -146,13 +153,14 @@ const MainPage = ({
       date_add={movie.date_add}
     />
   ));
-  
+
   const ListComponent = () => (
     <React.Fragment>
       <AddMovieInput />
 
-      { (!loading && movies.length) ? (
-        <div className="card-container-grid">{MoviesList}</div>) : !loading && !movies.length ? (
+      {!loading && movies.length ? (
+        <div className="card-container-grid">{MoviesList}</div>
+      ) : !loading && !movies.length ? (
         <Typography
           className={classes.margin}
           align="center"
@@ -161,10 +169,11 @@ const MainPage = ({
           component="h6"
         >
           This folder is empty ...
-        </Typography>) : null}
+        </Typography>
+      ) : null}
 
       <Grid container alignItems="center" direction="column">
-        {loading  ? (
+        {loading ? (
           <CircularProgress
             className={classes.margin}
             color="secondary"
@@ -177,29 +186,28 @@ const MainPage = ({
             onChange={onPageChangeHandler}
             color="secondary"
           />
-        ): null}
-      </Grid> 
+        ) : null}
+      </Grid>
     </React.Fragment>
-  )
+  );
   const UnauthorizedComponent = () => (
     <React.Fragment>
       <Typography
-          className={classes.margin}
-          align="center"
-          color="secondary"
-          variant="h6"
-          component="h6"
-        >
-          You must sign in to use the application...
-        </Typography>
-
+        className={classes.margin}
+        align="center"
+        color="secondary"
+        variant="h6"
+        component="h6"
+      >
+        You must sign in to use the application...
+      </Typography>
     </React.Fragment>
-  )
+  );
   return (
     <React.Fragment>
       <NavBar />
-      {modalOpen && <VideoModal/>}
-      {auth.isAuthenticated ? <ListComponent/> : <UnauthorizedComponent/>}
+      {modalOpen && <VideoModal />}
+      {auth.isAuthenticated ? <ListComponent /> : <UnauthorizedComponent />}
     </React.Fragment>
   );
 };
@@ -217,4 +225,3 @@ export default connect(mapStateToProps, {
   setTotalPage,
   setCurrentPage,
 })(MainPage);
-
